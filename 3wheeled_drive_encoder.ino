@@ -1,5 +1,9 @@
-#define PWMA 4
-#define DirA 5
+#define PWM1 15
+#define Dir1 16
+#define PWM2 17
+#define Dir2 18
+#define PWM3 19
+#define Dir3 20
 
 // MOTOR 1
 int p_pin_1A = 2;
@@ -29,6 +33,13 @@ int ppr=749;
 
 
 void setup() {
+ pinMode(PWM1,OUTPUT);
+ pinMode(PWM2,OUTPUT);
+ pinMode(PWM3,OUTPUT);
+ pinMode(Dir1,OUTPUT);
+ pinMode(Dir2,OUTPUT);
+ pinMode(Dir3,OUTPUT);
+ 
  pinMode(p_pin_1A,INPUT_PULLUP);
  pinMode(p_pin_1B,INPUT_PULLUP);
  pinMode(p_pin_2A,INPUT_PULLUP);
@@ -108,4 +119,9 @@ void ISR_3(){
   else{
     pulse_3--;
   }
+}
+
+
+void Drive_forward(){
+ 
 }
