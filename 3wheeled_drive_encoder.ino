@@ -125,13 +125,22 @@ void ISR_3(){
 void Drive_forward(){
  digitalWrite(Dir1,HIGH);
  analogWrite(PWM1,255);
- digitalWrite(Dir2,HIGH);
+ digitalWrite(Dir2,LOW);
  analogWrite(PWM2,255);
 }
 
 void Drive_backward(){
- digitalWrite(Dir1,HIGH);
+ digitalWrite(Dir1,LOW);
  analogWrite(PWM1,255);
  digitalWrite(Dir2,HIGH);
  analogWrite(PWM2,255);
 }
+
+void clockwise(){
+ digitalWrite(Dir1,LOW);
+ analogWrite(PWM1,255);
+ digitalWrite(Dir2,LOW);
+ analogWrite(PWM2,255);
+ digitalWrite(Dir3,LOW);
+ analogWrite(PWM3,255);
+ }
