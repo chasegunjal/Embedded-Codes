@@ -33,19 +33,18 @@ void loop() {
   curr_millis = millis(); //setting timer during loop.
   
   if((curr_millis - prev_millis)>interval){   // Calculating RPM and velocity every second.
-    detachInterrupt(digitalPinToInterrupt(pulsePinA)); // we are detaching the interrupt because, use of interrupt dusring calculation may cause errors in calculations. As priority of inerrupt is highest,when interrupt gets triggered calculations gets interfered with new values. 
+    detachInterrupt(digitalPinToInterrupt(pulsePinA)); // we are detaching the interrupt because, use of interrupt during calculation may cause errors in calculations. As priority of inerrupt is highest,when interrupt gets triggered calculations gets interfered with new values. 
     RPM = (count/ppr)*60;
     velocity = (RPM*2*3.14)/60;
+    Serial.println("RPM: ");
+    Serial.println(RPM);
+    Serial.println("Velocity: ");
+    Serial.print( velocity);
+    delay(1000);
     count =0;
     prev_millis = curr_millis;   
     attachInterrupt(digitalPinToInterrupt(pulsePinA),counter,RISING);
   }
-  Serial.println("RPM: ");
-  Serial.println(RPM);
-  Serial.println("Velocity: ");
-  Serial.print( velocity);
-  delay(1000);
-  
 }
 //Cytron MD30C code.
 
